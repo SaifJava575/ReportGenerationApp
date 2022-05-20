@@ -25,7 +25,7 @@ public class ReportRestController {
 	
 	@GetMapping("/plan-name")
 	public List<String> getPlanNames(){
-		return service.getPlanStatus();
+		return service.getPalnNames();
 	}
 	
 	@GetMapping("/plan-status")

@@ -39,7 +39,7 @@ public class EligibilityDetails {
 	@Column(name="BENEFIT_AMT")
 	private Integer benefitAmt;
 	
-	@Column(name="DENIAL_REASON")
+	@Column(name="DENIAL_REASN")
 	private String denialReason;
 	
 	@Column(name="START_DATE")
