@@ -34,7 +34,7 @@ public class ReportServiceImpl implements IReportService {
 	@Override
 	public List<SearchResponse> searchPlans(SearchRequest request) {
 		List<EligibilityDetails> eligibleRecords=null;
-		if (request == null) {
+		if (isSearchReqEmpty(request)) {
 			eligibleRecords=repository.findAll();
 		}
 		else {
@@ -66,6 +66,23 @@ public class ReportServiceImpl implements IReportService {
 			response.add(sr);
 		}
 			return response;
+	}
+	
+	private boolean isSearchReqEmpty(SearchRequest searchRequest) {
+		if(searchRequest==null) {
+			return true;
+		}
+		if(searchRequest.getPlanName()!=null && searchRequest.getPlanName().equals("")) {
+			return false;
+		}
+		if(searchRequest.getPlanStatus()!=null && searchRequest.getPlanStatus().equals("")) {
+			return false;
+		}
+		if(searchRequest.getStartDate()!=null && searchRequest.getEndDate()!=null) {
+			return false;
+		}
+		
+		return true;
 	}
 
 }
